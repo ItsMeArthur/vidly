@@ -41,6 +41,28 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+            {
+                _context.Movies.Add(movie);
+                _context.SaveChanges();
+            }
+            else
+            {
+                Movie movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+
+                _context.SaveChanges();              
+            }
+
+            return RedirectToAction("Index", "Movies");
+        }
+
         public ActionResult New()
         {
             IEnumerable<Genre> genres = _context.Genres.ToList();
