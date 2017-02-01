@@ -9,6 +9,8 @@
 
 @if (Model != null && Model.Count() > 0)
 {
+    @Html.ActionLink("New Movie", "New", "Movies", new { @class = "btn btn-primary" })
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -24,7 +26,7 @@
                     <td>@movie.Id</td>
                     <td>@movie.Name</td>
                     <td>@movie.Genre.Description</td>
-                    <td>@Html.ActionLink("Details", "Details", "Movies", new { id = movie.Id}, null)</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Movies", new { id = movie.Id}, null)</td>
                 </tr>
             }
         </tbody>
