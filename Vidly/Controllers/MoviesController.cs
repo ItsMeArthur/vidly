@@ -41,12 +41,12 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
+        [HttpPost]
         public ActionResult Save(Movie movie)
         {
             if (movie.Id == 0)
             {
                 _context.Movies.Add(movie);
-                _context.SaveChanges();
             }
             else
             {
@@ -55,10 +55,10 @@ namespace Vidly.Controllers
                 movieInDb.Name = movie.Name;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.GenreId = movie.GenreId;
-                movieInDb.NumberInStock = movie.NumberInStock;
-
-                _context.SaveChanges();              
+                movieInDb.NumberInStock = movie.NumberInStock;                             
             }
+
+            _context.SaveChanges();
 
             return RedirectToAction("Index", "Movies");
         }
