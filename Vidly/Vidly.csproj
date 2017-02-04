@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201701290036007_AddedSeedDataToGenres.Designer.cs">
       <DependentUpon>201701290036007_AddedSeedDataToGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702041930414_ChangeMovieReleaseDateToRequired.cs" />
+    <Compile Include="Migrations\201702041930414_ChangeMovieReleaseDateToRequired.Designer.cs">
+      <DependentUpon>201702041930414_ChangeMovieReleaseDateToRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -225,6 +229,7 @@
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Validators\BetweenOneAndTwenty.cs" />
     <Compile Include="Validators\Min18YearsIfMember.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\MovieFormViewModel.cs" />
@@ -333,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701290036007_AddedSeedDataToGenres.resx">
       <DependentUpon>201701290036007_AddedSeedDataToGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702041930414_ChangeMovieReleaseDateToRequired.resx">
+      <DependentUpon>201702041930414_ChangeMovieReleaseDateToRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
