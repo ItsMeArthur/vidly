@@ -1,18 +1,46 @@
 ﻿@model Vidly.Models.Customer
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Customer Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@Model.Name</h2>
 
-<ul>
-    <li>@Model.MemberShipType.Name</li>
 
-    @if (Model.Birthdate != null)
-    {
-        <li>@Model.Birthdate.Value.ToShortDateString()</li>
-    }
-</ul>
-
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th colspan="2">Customer Information</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Id</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <td>Birthdate</td>
+            <td>@{Model.Birthdate?.ToLongDateString();}</td>
+        </tr>
+        <tr>
+            <td>Membership Type</td>
+            <td>@Model.MemberShipType.Name</td>
+        </tr>
+        <tr>
+            <td>Is Subscribed to Newsletter</td>
+            @if (Model.IsSubscribedToNewsletter)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+        </tr>
+    </tbody>
+</table>
